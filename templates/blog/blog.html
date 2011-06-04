@@ -1,0 +1,48 @@
+{% extends "../_base.htm" %} 
+{% block sidebar %} 
+
+		{% if admin  %}<a href="/blog/admin"> Administracion </a> {% endif %}
+
+{% endblock %}
+{% block content %}
+	<div id="single-page" class="clearfix blog left-sidebar">
+		<div id="primary">
+			<div id="content" role="main">
+				<header class="page type-page status-publish hentry entry-header" >
+					<h1 class="page-title"> Blog </h1>
+				</header>
+				{% for entry in entries %}
+					<article class="post type-post status-publih format-standard hentry category-blog tag-blog tag-dreaming clearfix">
+						<div class="date-badge">
+							{{entry.published_at.day}}
+							<span>{{entry.published_at|date:"M"}} </span>
+						</div>
+						<div class="entry">
+							<h2 class="entry-title" >
+								<a href="" > {{entry.title }}</a> 
+							</h2>
+							<div class="entry-image">
+								<img height="180" width="600" title="Check" alt="Check" class="fade-image" src="http://themes.do-media.de/wordpress/invictus/wp-content/themes/invictus/timthumb.php?src=http://themes.do-media.de/wordpress/invictus/wp-content/uploads/2011/03/hunuafalls_1680x1050-1024x640.jpg&amp;h=180&amp;w=600&amp;a=c&amp;q=75">
+							<div class="clearfix">
+								<div class="entry-content">
+									{{entry.entry}}
+									<a href="/blog/entry/{{entry.slug}}">Continuar Leyendo... {{entry.titulo}}</a>
+								</div>	
+							</div>
+							<div class="clearfix entry-meta" >
+								<ul>
+									<li>
+										Publicado : {{entry.published_at|date:"d M Y" }}
+									</li>
+								</ul>
+							</div>
+							
+						</div>
+						</div>
+					</article>
+					<hr class="shortcode" noshade="noshade">
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+{% endblock %}

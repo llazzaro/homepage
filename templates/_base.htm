@@ -1,0 +1,85 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head> 
+	<title>{% block title %}App Engine - HTML {% endblock %}</title> 
+	<link href="/static/main.css" rel="stylesheet" type="text/css" />
+	<link href="/static/black.css" rel="stylesheet" type="text/css" />
+	<link href="/static/blue.css" rel="stylesheet" type="text/css" />
+<!--	<link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Homemade+Apple' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Dancing+Script' rel='stylesheet' type='text/css'>
+	<script type="text/javascript" src="http://www.google.com/jsapi"></script> -->
+	<link type="text/css" rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic">
+	<link type="text/css" rel="stylesheet" href="http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:extralight,light,regular,bold">
+	<script type="text/javascript" src="/static/script.js"></script>
+	<script type="text/javascript">
+
+	  var _gaq = _gaq || [];
+	  _gaq.push(['_setAccount', 'UA-20080766-1']);
+	  _gaq.push(['_trackPageview']);
+	
+	  (function() {
+	    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	  })();
+	</script>
+<style type="text/css">
+	h1, h2, h3, h4, h5, h6, h7, #welcomeTeaser, .max_widget_teaser {
+				font-family: "Yanone Kaffeesatz","Helvetica Neue", Helvetica, Arial, sans-serif;
+		font-weight: 300	
+	}
+	
+	body, #sidebar .widget { 
+				font-size:  12px !important;
+				font-family: "PT Sans","Helvetica Neue", Helvetica, Arial, sans-serif; 
+	}
+	#welcomeTeaser { font-size: 26px; }
+	#welcomeTeaser .inner strong { font-size: 36px; }
+				
+</style>
+</head> 
+	<body>
+		<header id="branding" role="banner">
+			<hgroup class="navbar">
+				<h1 id="site-title"> LALALALALA</h1>
+			</hgroup>
+			<nav id="navigation" role="navigation" style="top: 0px;">
+				<div id="navHolder">
+					<ul id="menu-main-menu" class="sf-menu sf-js-enabled">
+						<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home" id="menu-item-32">
+							<a href="http://www.lazzaroleonardo.com.ar/"><span>Home</span></a>
+						</li>
+						<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home" id="menu-item-32">
+							<a href="http://www.lazzaroleonardo.com.ar/blog/"><span>Blog</span></a>
+						</li>
+						<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home" id="menu-item-32">
+							<a href="http://www.lazzaroleonardo.com.ar/cv/"><span>Curriculum Vitae</span></a>
+						</li>
+						<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home" id="menu-item-32">
+							<a href="http://www.lazzaroleonardo.com.ar/projectos/"><span>Projects</span></a>
+						</li>	
+						<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home" id="menu-item-32">
+							<a href="http://www.lazzaroleonardo.com.ar/photos/"><span>Photos</span></a>
+						</li>
+
+						<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home" id="menu-item-32">
+							<a href="http://www.lazzaroleonardo.com.ar/portfolio/"><span>Portfolio</span></a>
+						</li>
+						<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home" id="menu-item-32">
+							<a href="http://www.lazzaroleonardo.com.ar/contact/"><span>Contact</span></a>
+						</li>
+					</ul>
+				</div>
+			</nav>
+		</header>
+		<div id="main" class="clearfix">
+			{% block content %} {% endblock %}
+		</div>
+		<div id="sidebar" >
+			{% block sidebar %} {% endblock %}
+		</div>
+		<footer id="colophon" role="contentinfo">
+			blah blah .......
+		</footer>
+	</body>
+</html>

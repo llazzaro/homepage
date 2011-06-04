@@ -1,0 +1,40 @@
+:link, a:visited { color: #5aa8e5 }
+	
+	#site-title,
+	nav#navigation ul a:hover,
+	nav#navigation ul li.sfHover a,
+	nav#navigation ul li.current-cat a,
+	nav#navigation ul li.current_page_item a,
+	nav#navigation ul li.current-menu-item a,
+	nav#navigation ul li.current-page-ancestor a,
+	#colophon,
+	#thumbnails .pulldown-items a.activeslide { 
+		border-color: #5aa8e5;
+	}
+	
+	#thumbnails .scroll-link,
+	#fullsizeTimer,
+	.blog .date-badge,
+	.pagination a:hover,
+	.pagination span.current { 
+		background-color: #5aa8e5;
+	}	
+	
+	#expander,
+	#toggleThumbs { 
+		background-color: rgba(68,154,245, 0.75); 
+	}
+	nav#navigation ul ul { 
+		background-color: rgba(68,154,245, 0.9); 
+	}
+
+	nav#navigation ul ul li {
+		border-color: rgb(118,204,295);  		
+	}
+	
+	h1, h1 a:link, h1 a:visited { color: #ffffff; }
+	h2 { color: #449af5; }
+	h3 { color: #eeeeee; }
+	h4 { color: #eeeeee; }
+	h5 { color: #eeeeee; }
+	h6 { color: #eeeeee; }

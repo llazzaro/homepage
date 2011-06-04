@@ -1,0 +1,29 @@
+{% extends "../_base.htm" %}
+
+{% block content %}
+<div id="single-page" class="clearfix blog left-sidebar">
+	<div id="primary">
+		<nav id="nav-above">
+			<a rel="prev" href="http://www.lazzaroleonardo.com.ar/blog/"><span class="meta-nav">?</span> And another Blog post</a>
+		<div class="nav-next"></div>
+		</nav>
+		<header class="entry-header">
+				<h1 class="entry-title">{{ entry.title }}</h1>			
+		</header>
+		<div role="main" id="content">
+			<articles>
+				<div class="entry-image">
+					<img height="350" width="600" title="Check" alt="Check" class="fade-image" src="http://themes.do-media.de/wordpress/invictus/wp-content/themes/invictus/timthumb.php?src=http://themes.do-media.de/wordpress/invictus/wp-content/uploads/2011/03/hunuafalls_1680x1050-1024x640.jpg&amp;h=350&amp;w=600&amp;a=c&amp;q=100">
+				</div>
+				<div class="clearfix">
+					<div class="entry-content">
+						{{ entry.text }}
+					</div>
+				</div>
+			</article>
+			<div id="comments-holder" class="clearfix">
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}

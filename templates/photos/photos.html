@@ -1,0 +1,10 @@
+{% extends "../_base.htm" %} 
+{% block bodycontent %}
+	<h1>Fotos</h1> 
+	{% if admin %} <a href="/fotos/admin" >Administracion</a> {% endif %}
+	<div class="galerias">
+		{% for galeria in galerias %}
+			<a href="/fotos/galeria?key={{galeria.key}}" >{{galeria.nombre}}</a>
+		{% endfor %}
+	</div>
+{% endblock %}

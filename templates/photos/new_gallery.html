@@ -1,0 +1,15 @@
+{% extends "../_base.htm" %}
+
+{% block bodycontent %}
+	<h1>Nueva galeria</h1>
+	<form method="post" action="/fotos/admin/galeria_nueva">
+		Nombre :<input type="text" name="nombre" size="60" {% if galeria %} value="{{galeria.nombre}}" {% endif %}/>
+		Borrador :<input type="checkbox" name="borrador" {% if galeria.borrador %} checked="true" {% endif %} />
+		Descripcion :<textarea type="text" name="descripcion" cols="%100" rows="30"> {%if galeria %} {{galeria.descripcion }} {% endif %} </textarea>
+		<input type="submit" name="Entrada" />
+		{% if galeria %}
+			<input type="hidden" name="key" value="{{galeria.key}}" />
+		{% endif %}
+	</form>
+	<a href="/fotos/admin/foto_nueva?galeria={{galeria.key}}">Agregar foto</a>
+{% endblock %}
