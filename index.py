@@ -6,6 +6,7 @@ from google.appengine.api import users
 from models import *
 import logging 
 
+
 class MainHandler(webapp.RequestHandler):
 
   def get(self):

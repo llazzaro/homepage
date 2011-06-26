@@ -9,6 +9,9 @@ handlers:
 - url: /
   script: index.py
 
+- url: /image
+  script: index.py
+
 - url: /contact
   script: index.py
 
@@ -58,4 +61,7 @@ handlers:
 - url: /photos/admin/.*
   script: photos.py
   login: admin
+
+- url: /portfolio
+  script: portfolio.py
 

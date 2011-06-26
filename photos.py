@@ -4,10 +4,10 @@ from google.appengine.ext import webapp
 from google.appengine.ext.webapp import template
 from google.appengine.api import users
 from models import *
-from decoradores import selectorTemplate
+from decorators import templateSelector
 import logging
 
-#def selectorTemplate(func,template):
+#def templateSelector(func,template):
 #  temp = os.path.join(os.path.dirname(__file__),template)
 #  outstr = temp.render(temp,func)
 #  self.response.out.write(outstr)
@@ -15,14 +15,14 @@ import logging
 
 class MainHandler(webapp.RequestHandler):
  
-  @selectorTemplate('templates/fotos/fotos.html')
+  @templateSelector('templates/photos/photos.html')
   def get(self):
     path = self.request.path
     nombre_seccion = self.getSeccion(path)
     texto_seccion = "texto seccion"
     admin = users.is_current_user_admin()
-    galerias = db.Query(Galeria).order('-creada').fetch(limit=10)
-    return self.response,{'nombre_seccion':nombre_seccion,'texto_seccion':texto_seccion,'path':path,'admin':admin,'galerias':galerias}
+    gallerys = db.Query(Gallery).order('-created_at').fetch(limit=10)
+    return self.response,{'nombre_seccion':nombre_seccion,'texto_seccion':texto_seccion,'path':path,'admin':admin,'gallerys':gallerys}
 
   def getSeccion(self,path):
     return { 
@@ -31,73 +31,73 @@ class MainHandler(webapp.RequestHandler):
 		'/about':'Acerca de',
 		'/projects':'Proyectos',
 		'/blog':'Blog',
-		'/fotos':'Fotos',
+		'/photos':'Fotos',
 	}[path]
 
-#class GaleriaHandler(webapp.RequestHandler):
+#class GalleryHandler(webapp.RequestHandler):
 #  def get(self):
 #    pass
 
 class AdminHandler(webapp.RequestHandler):
-  @selectorTemplate('templates/fotos/admin.html')
+  @templateSelector('templates/photos/admin.html')
   def get(self):
-    galerias = db.Query(Galeria).order('-creada').fetch(limit=10)
-    return self.response,{'galerias':galerias}
+    galleries = db.Query(Gallery).order('-created_at').fetch(limit=10)
+    return self.response,{'galleries':galleries}
 
 class FotoHandler(webapp.RequestHandler):
-  @selectorTemplate('templates/fotos/nueva_foto.html')
+  @templateSelector('templates/photos/new_photo.html')
   def get(self):
 
-    foto = None
-    galeria = db.get(self.request.get('galeria'))
+    photo = None
+    gallery = db.get(self.request.get('gallery'))
     if self.request.get('key'):
-      foto = db.get(self.request.get('key'))
+      photo = db.get(self.request.get('key'))
 
-    return self.response,{'foto':foto,'galeria':galeria}
+    return self.response,{'photo':photo,'gallery':gallery}
 
   def post(self):
-    galeria = db.get(self.request.get('galeria'))
+    gallery = db.get(self.request.get('gallery'))
     if self.request.get('key') is '':
-      foto = Foto(
-                nombre = self.request.get('nombre'),
-                descripcion = self.request.get('descripcion'),
+      photo = Photo(
+                name = self.request.get('name'),
+                description = self.request.get('description'),
                 link = self.request.get('link'),
-		galeria = galeria,
+		gallery = gallery,
             )
     else:
-      foto = db.get(self.request.get('key'))
-      foto.descripcion = self.request.get('descripcion')
-      foto.nombre = self.request.get('nombre')
-      foto.borrador = bool(self.request.get('borrador'))
+      photo = db.get(self.request.get('key'))
+      photo.descripcion = self.request.get('descripcion')
+      photo.nombre = self.request.get('nombre')
+      photo.borrador = bool(self.request.get('borrador'))
 
-    foto.put()
-    self.redirect('/fotos/galeria?key='+self.request.get('galeria'))
+    photo.put()
+    self.redirect('/photos/gallery?key='+self.request.get('gallery'))
 
-class GaleriaHandler(webapp.RequestHandler):
-  @selectorTemplate('templates/fotos/nueva_galeria.html')
+class GalleryHandler(webapp.RequestHandler):
+  @templateSelector('templates/photos/nueva_gallery.html')
   def get(self):
 
-    galeria = None
+    gallery = None
     if self.request.get('key'):
-      galeria = db.get(self.request.get('key'))
+      gallery = db.get(self.request.get('key'))
 
-    return self.response,{'galeria':galeria}
+    return self.response,{'gallery':gallery}
 
   def post(self):
     if self.request.get('key') is '':
-      galeria = Galeria(
+      gallery = Gallery(
                 nombre = self.request.get('nombre'),
                 descripcion = self.request.get('descripcion'),
                 borrador = bool(self.request.get('borrador'))
             )
     else:
-      galeria = db.get(self.request.get('key'))
-      galeria.descripcion = self.request.get('descripcion')
-      galeria.nombre = self.request.get('nombre')
-      galeria.borrador = bool(self.request.get('borrador'))
+      gallery = db.get(self.request.get('key'))
+      gallery.descripcion = self.request.get('descripcion')
+      gallery.nombre = self.request.get('nombre')
+      gallery.borrador = bool(self.request.get('borrador'))
 
-    galeria.put()
-    self.redirect('/fotos/admin')
+    gallery.put()
+    self.redirect('/photos/admin')
 
 
 class NotFoundHandler(webapp.RequestHandler):
@@ -106,23 +106,23 @@ class NotFoundHandler(webapp.RequestHandler):
     outstr = template.render(temp,{})
     self.response.out.write(outstr)
 
-class VistaGaleriaHandler(webapp.RequestHandler):
-  @selectorTemplate('templates/fotos/galeria.html')
+class ViewGalleryHandler(webapp.RequestHandler):
+  @templateSelector('templates/photos/gallery.html')
   def get(self):
     if self.request.get('key'):
-      galeria = db.get(self.request.get('key'))
-      #fotos = db.Query(Foto).filter('galeria=',galeria)
+      gallery = db.get(self.request.get('key'))
+      #photos = db.Query(Foto).filter('gallery=',gallery)
       admin = users.is_current_user_admin()
-    return self.response,{'galeria':galeria,'admin':admin}
+    return self.response,{'gallery':gallery,'admin':admin}
 
 def main():
   application = webapp.WSGIApplication([
-		(r'/fotos',MainHandler),
-		(r'/fotos/galeria/?',VistaGaleriaHandler),
-		(r'/fotos/admin',AdminHandler),
-		(r'/fotos/admin/galeria_nueva',GaleriaHandler),
-		(r'/fotos/admin/editar/galeria/editar/?',GaleriaHandler),
-                (r'/fotos/admin/foto_nueva/?',FotoHandler),
+		(r'/photos',MainHandler),
+		(r'/photos/gallery/?',ViewGalleryHandler),
+		(r'/photos/admin',AdminHandler),
+		(r'/photos/admin/gallery_nueva',GalleryHandler),
+		(r'/photos/admin/editar/gallery/editar/?',GalleryHandler),
+                (r'/photos/admin/photo_nueva/?',FotoHandler),
 		],debug=True)
   wsgiref.handlers.CGIHandler().run(application)
 

@@ -10,6 +10,12 @@
 	<script type="text/javascript" src="http://www.google.com/jsapi"></script> -->
 	<link type="text/css" rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic">
 	<link type="text/css" rel="stylesheet" href="http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:extralight,light,regular,bold">
+	<link type="text/css" rel="stylesheet" href="http://fonts.googleapis.com/css?family=OFL+Sorts+Mill+Goudy+TT">
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+	<script type="text/javascript" src="/static/jquery.livequery.js"></script>
+	<script type="text/javascript" src="/static/jquery.prettyPhoto.js"></script>
+	<script type="text/javascript" src="/static/jquery.easing.js"></script>
+	<script type="text/javascript" src="/static/custom.js"></script>
 	<script type="text/javascript" src="/static/script.js"></script>
 	<script type="text/javascript">
 
@@ -24,25 +30,25 @@
 	  })();
 	</script>
 <style type="text/css">
-	h1, h2, h3, h4, h5, h6, h7, #welcomeTeaser, .max_widget_teaser {
+	h2, h3, h4, h5, h6, h7, #welcomeTeaser, .max_widget_teaser {
 				font-family: "Yanone Kaffeesatz","Helvetica Neue", Helvetica, Arial, sans-serif;
-		font-weight: 300	
+		font-weight: 300;
 	}
 	
 	body, #sidebar .widget { 
 				font-size:  12px !important;
 				font-family: "PT Sans","Helvetica Neue", Helvetica, Arial, sans-serif; 
 	}
-	#welcomeTeaser { font-size: 26px; }
+	#welcomeTeaser { font-size: 26px; width:300px; }
 	#welcomeTeaser .inner strong { font-size: 36px; }
 				
 </style>
 </head> 
 	<body>
 		<header id="branding" role="banner">
-			<hgroup class="navbar">
+			<!--<hgroup class="navbar">
 				<h1 id="site-title"> LALALALALA</h1>
-			</hgroup>
+			</hgroup> -->
 			<nav id="navigation" role="navigation" style="top: 0px;">
 				<div id="navHolder">
 					<ul id="menu-main-menu" class="sf-menu sf-js-enabled">
@@ -79,7 +85,16 @@
 			{% block sidebar %} {% endblock %}
 		</div>
 		<footer id="colophon" role="contentinfo">
-			blah blah .......
+			<a href="http://ar.linkedin.com/in/llazzaro" ><img src="/static/img/linkedin.png" alt="linkedin profile"></a>
+			<a href="http://www.facebook.com/lazzaroleonardo"><img src="/static/img/fb.png" alt="facebook profile"></a>
+			<a href="http://twitter.com/#!/llazzaro" ><img src="/static/img/twitter.png" alt="twitter profile"></a>
+			<a href="http://www.flickr.com/photos/llazzaro/" ><img src="/static/img/flickr.png" alt="flickr profile"></a>
+			<a href="https://github.com/llazzaro" ><img src="/static/img/github.png" alt="github profile"></a>
+			<a href="http://stackoverflow.com/users/127153/llazzaro" ><img src="/static/img/stackoverflow.ico" alt="stackoverflow profile"></a>
+			<a href="http://serverfault.com/users/15693/llazzaro" ><img src="/static/img/serverfault.ico" alt="serverfault profile"></a>
+			<a href="http://superuser.com/users/27760/llazzaro" ><img src="/static/img/superuser.ico" alt="superuser profile"></a>
+			<a href="http://snippets.scrapy.org/users/llazzaro/" ><img src="/static/img/scrapy.ico" alt="scrapy snippets profile"></a>
+			<a href="http://soundcloud.com/lcubo"><img src="/static/img/soundcloud.ico" width="16px" height="16px" alt="soundcloud profile"></a>
 		</footer>
 	</body>
 </html>

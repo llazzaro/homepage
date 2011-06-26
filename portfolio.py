@@ -12,22 +12,17 @@ class MainHandler(webapp.RequestHandler):
     nombre_seccion = self.getSeccion(path)
     texto_seccion = "texto seccion"
 
-    projects = db.Query(Project).get()
+    portfolios = db.Query(Project).get()
     
-    temp = os.path.join(os.path.dirname(__file__),'templates/projects/projects.html')
+    temp = os.path.join(os.path.dirname(__file__),'templates/portfolio/portfolio.html')
     logging.info(temp)    
 
-    outstr = template.render(temp,{'nombre_seccion':nombre_seccion,'texto_seccion':texto_seccion,'path':path,'projects':projects})
+    outstr = template.render(temp,{'nombre_seccion':nombre_seccion,'texto_seccion':texto_seccion,'path':path,'portfolio':portfolios})
     self.response.out.write(outstr)
 
   def getSeccion(self,path):
     return { 
-		'/index':  'Inicio',
-		'/cv':'Curriculum Vitae',
-		'/about':'Acerca de',
-		'/projects':'Projects',
-		'/blog':'Blog',
-		'/fotos':'Fotos',
+		'/portfolio':'Portfolio',
 	}[path]
 
 class NotFoundHandler(webapp.RequestHandler):
@@ -42,7 +37,7 @@ class AdminHandler(webapp.RequestHandler):
 
 def main():
   application = webapp.WSGIApplication([
-		(r'/projects',MainHandler),
+		(r'/portfolio',MainHandler),
 		],debug=True)
   wsgiref.handlers.CGIHandler().run(application)
 

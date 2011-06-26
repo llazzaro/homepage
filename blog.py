@@ -39,6 +39,8 @@ class EntryHandler(webapp.RequestHandler):
       oEntry = Entry(
     		author = users.get_current_user(),
                 title = self.request.get('title'),
+		intro = self.request.get('intro'),
+		photo = db.Blob(self.request.get('photo')),
                 slug = self.request.get('slug'),
                 text = self.request.get('text'),
 		draft = bool(self.request.get('draft'))
@@ -46,6 +48,7 @@ class EntryHandler(webapp.RequestHandler):
     else:
       oEntry = db.get(self.request.get('key'))
       oEntry.title = self.request.get('title')
+      oEntry.intro = self.request.get('intro')
       oEntry.slug = self.request.get('slug')
       oEntry.text = self.request.get('text')
       oEntry.draft = bool(self.request.get('draft'))
@@ -94,6 +97,18 @@ class TagHandler(webapp.RequestHandler):
 class DateHandler(webapp.RequestHandler):
   pass
 
+class GetImage(webapp.RequestHandler):
+    def get(self):
+        slug = self.request.get('slug')
+        entry = db.Query(Entry).filter("slug = ",slug).get()
+        if (entry and entry.photo):
+            self.response.headers['Content-Type'] = 'image/jpeg'
+            self.response.out.write(entry.photo)
+        else:
+	    self.error(404)
+            #self.redirect('/static/noimage.jpg')
+
+
 def main():
   application = webapp.WSGIApplication([
 		(r'/blog',BlogHandler),
@@ -106,6 +121,7 @@ def main():
 		(r'/blog/admin',AdminHandler),
 		(r'/blog/tag/?',TagHandler),
 		(r'/blog/date/?',DateHandler),
+		(r'/blog/image',GetImage),
 		],debug=True)
   wsgiref.handlers.CGIHandler().run(application)
 

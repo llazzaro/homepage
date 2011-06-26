@@ -1,10 +1,21 @@
 {% extends "../_base.htm" %} 
-{% block bodycontent %}
-	<h1>Fotos</h1> 
+{% block asideblock %}
 	{% if admin %} <a href="/fotos/admin" >Administracion</a> {% endif %}
-	<div class="galerias">
-		{% for galeria in galerias %}
-			<a href="/fotos/galeria?key={{galeria.key}}" >{{galeria.nombre}}</a>
-		{% endfor %}
+{% endblock %}
+{% block bodycontent %}
+	<div id="single-page" class="clearfix">
+		<div id="primary">
+			<div id="content" role="main">
+				<header class="page type-page status-publish hentry entry-header">
+					<h1 class="page=title"> Photos </h1>
+					<h2 class="page-description">Some photos I take blah blah...</h2>
+				</header>
+				<div class="galerias">
+					{% for galeria in galerias %}
+						<a href="/fotos/galeria?key={{galeria.key}}" >{{galeria.nombre}}</a>
+					{% endfor %}
+				</div>
+			</div>
+		</div>
 	</div>
 {% endblock %}

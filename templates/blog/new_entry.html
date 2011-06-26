@@ -2,8 +2,10 @@
 
 {% block content %}
 	<h1>Nueva entry</h1>
-	<form method="post" action="/blog/new">
+	<form method="post" action="/blog/new" enctype="multipart/form-data" >
 		Title :<input type="text" name="title" size="60" {% if entry %} value="{{entry.title}}" {% endif %}/>
+		Introduction :<textarea type="text" name="intro" cols="%100" rows="5"> {% if entry %} {{entry.intro}} {% endif %} </textarea>
+		Photo: <input type="file" name="photo">
 		Draft :<input type="checkbox" name="draft" {% if entry.draft %} checked="true" {% endif %} />
 		Slug :<input type="text" name="slug" size="60" {% if entry %} value="{{entry.slug}}" {% endif %} />
 		Text:<textarea type="text" name="text" cols="%100" rows="30"> {%if entry %} {{entry.text }} {% endif %} </textarea>

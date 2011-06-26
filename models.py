@@ -4,6 +4,8 @@ from google.appengine.ext import db
 class Entry(db.Model):
   author = db.UserProperty()
   title = db.StringProperty(required=True)
+  intro = db.TextProperty(required=True)
+  photo = db.BlobProperty()
   slug = db.StringProperty(required=True)
   text = db.TextProperty(required=True)
   created_at = db.DateTimeProperty(auto_now=True)
@@ -39,7 +41,7 @@ class Technology(db.Model):
   name = db.StringProperty()
   curriculum = db.ReferenceProperty(Curriculum,collection_name='technology')
 
-class Jobs(db.Model):
+class Job(db.Model):
   name = db.StringProperty()
   description = db.TextProperty()
   start = db.DateProperty()
