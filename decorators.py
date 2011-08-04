@@ -19,10 +19,11 @@ class templateSelector(object):
         """
         def wrapped_f(*args, **kwargs):
             temp = os.path.join(os.path.dirname(__file__), self.template)
-            response, datos_template = f(*args)
-            outstr = template.render(temp, datos_template)
+            response, template_data = f(*args)
+            outstr = template.render(temp, template_data)
             response.out.write(outstr)
-            return wrapped_f
+        
+        return wrapped_f
 
 #def selectorTemplate(method,tempplate):
 #  temp = os.path.join(os.path.dirname(__file__),template)
