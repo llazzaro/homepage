@@ -20,6 +20,7 @@ class templateSelector(object):
         def wrapped_f(*args, **kwargs):
             temp = os.path.join(os.path.dirname(__file__), self.template)
             response, template_data = f(*args)
+            template_data['host'] = args[0].request.host_url
             outstr = template.render(temp, template_data)
             response.out.write(outstr)
         
