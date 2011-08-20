@@ -5,30 +5,25 @@ from google.appengine.ext import webapp
 from google.appengine.ext.webapp import template
 from google.appengine.api import users
 from models import *
+from decorators import templateSelector
 import logging
 
 
 class MainHandler(webapp.RequestHandler):
+
+    @templateSelector('templates/index.html')
     def get(self):
         path = self.request.path
         nombre_seccion = self.getSeccion(path)
         texto_seccion = "texto seccion"
-        template_filename = os.path.join(
-                                os.path.dirname(__file__),
-                                'templates/%s.html' % (path))
-        if not os.path.isfile(template_filename):
-            #aca deberia ser 404
-            #raise self.error(404)
-            template_filename = os.path.join(
-                                    os.path.dirname(__file__),
-                                    'templates/index.html')
 
-        outstr = template.render(
-                    template_filename, {
+        return self.response, {
                         'nombre_seccion': nombre_seccion,
                         'texto_seccion': texto_seccion,
-                        'path': path})
-        self.response.out.write(outstr)
+                        'path': path}
+
+    def post(self):
+        pass
 
     def getSeccion(self, path):
         return {
