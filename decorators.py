@@ -1,6 +1,7 @@
 from google.appengine.ext.webapp import template
 import os
-
+import yaml
+import logging
 
 # decorators
 class templateSelector(object):
@@ -10,6 +11,9 @@ class templateSelector(object):
             to be decorated is not passed to the constructor!
         """
         self.template = template
+        options_file = open('options.yml')
+        self.options =  yaml.load(options_file)
+        options_file.close()
 
     def __call__(self, f):
         """
@@ -21,6 +25,7 @@ class templateSelector(object):
             temp = os.path.join(os.path.dirname(__file__), self.template)
             response, template_data = f(*args)
             template_data['host'] = args[0].request.host_url
+            template_data['disqus_shortname'] = self.options['disqus_shortname']
             outstr = template.render(temp, template_data)
             response.out.write(outstr)
         

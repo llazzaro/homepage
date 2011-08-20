@@ -1,4 +1,4 @@
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
 <head> 
 	<title>{% block title %}App Engine - HTML {% endblock %}</title> 
 	<meta name="google-site-verification" content="2t1J0UdxN2HwNgvGnuIdtKy8zJkt3hM2HO0MtwoXKd0" />
@@ -30,20 +30,6 @@
 	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 	  })();
 	</script>
-<style type="text/css">
-	h2, h3, h4, h5, h6, h7, #welcomeTeaser, .max_widget_teaser {
-				font-family: "Yanone Kaffeesatz","Helvetica Neue", Helvetica, Arial, sans-serif;
-		font-weight: 300;
-	}
-	
-	body, #sidebar .widget { 
-				font-size:  12px !important;
-				font-family: "PT Sans","Helvetica Neue", Helvetica, Arial, sans-serif; 
-	}
-	#welcomeTeaser { font-size: 26px; width:300px; }
-	#welcomeTeaser .inner strong { font-size: 36px; }
-				
-</style>
 </head> 
 	<body>
 		<header id="branding" role="banner">
@@ -99,7 +85,7 @@
 		</footer> -->
 		<script type="text/javascript">
 		    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-		    var disqus_shortname = 'example'; // required: replace example with your forum shortname
+                var disqus_shortname = '{{disqus_shortname}}'; // required: replace example with your forum shortname
 
 		    /* * * DON'T EDIT BELOW THIS LINE * * */
 		    (function () {

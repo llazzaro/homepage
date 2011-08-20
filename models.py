@@ -44,6 +44,7 @@ class Lenguages(db.Model):
 
 class Technology(db.Model):
     name = db.StringProperty()
+    link = db.StringProperty()
     curriculum = db.ReferenceProperty(Curriculum, collection_name='technology')
 
 
@@ -70,7 +71,7 @@ class Study(db.Model):
     curriculum = db.ReferenceProperty(Curriculum, collection_name='estudies')
 
 
-#modelo para fotos
+#
 class Gallery(db.Model):
     name = db.StringProperty()
     draft = db.BooleanProperty()
@@ -87,3 +88,6 @@ class Photo(db.Model):
 
 class Comment(db.Model):
     text = db.StringProperty()
+
+class Link(db.Model):
+    link = db.StringProperty()
