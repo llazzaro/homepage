@@ -1,38 +1,45 @@
-<!DOCTYPE html>
-<head> 
-	<title>{% block title %}App Engine - HTML {% endblock %}</title> 
-	<meta name="google-site-verification" content="2t1J0UdxN2HwNgvGnuIdtKy8zJkt3hM2HO0MtwoXKd0" />
-	<link href="/static/main.css" rel="stylesheet" type="text/css" />
-	<link href="/static/black.css" rel="stylesheet" type="text/css" />
-	<link href="/static/blue.css" rel="stylesheet" type="text/css" />
-<!--	<link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
-	<link href='http://fonts.googleapis.com/css?family=Homemade+Apple' rel='stylesheet' type='text/css'>
-	<link href='http://fonts.googleapis.com/css?family=Dancing+Script' rel='stylesheet' type='text/css'>
-	<script type="text/javascript" src="http://www.google.com/jsapi"></script> -->
-	<link type="text/css" rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic">
-	<link type="text/css" rel="stylesheet" href="http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:extralight,light,regular,bold">
-	<link type="text/css" rel="stylesheet" href="http://fonts.googleapis.com/css?family=OFL+Sorts+Mill+Goudy+TT">
-	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
-	<script type="text/javascript" src="/static/jquery.livequery.js"></script>
-	<script type="text/javascript" src="/static/jquery.prettyPhoto.js"></script>
-	<script type="text/javascript" src="/static/jquery.easing.js"></script>
-	<script type="text/javascript" src="/static/custom.js"></script>
-	<script type="text/javascript" src="/static/script.js"></script>
-	<script type="text/javascript">
+<!doctype html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+<!-- Consider adding an manifest.appcache: h5bp.com/d/Offline -->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
 
-	  var _gaq = _gaq || [];
-	  _gaq.push(['_setAccount', 'UA-20080766-1']);
-	  _gaq.push(['_trackPageview']);
-	
-	  (function() {
-	    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-	    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-	  })();
-	</script>
-</head> 
-	<body>
-		<header id="branding" role="banner">
+  <!-- Use the .htaccess and remove these lines to avoid edge case issues.
+       More info: h5bp.com/b/378 -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <title></title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!-- Mobile viewport optimized: j.mp/bplateviewport -->
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  <!-- Place favicon.ico and apple-touch-icon.png in the root directory: mathiasbynens.be/notes/touch-icons -->
+
+  <!-- CSS: implied media=all -->
+  <!-- CSS concatenated and minified via ant build script-->
+  <link rel="stylesheet" href="css/style.css">
+  <link href="/static/main.css" rel="stylesheet" type="text/css" />
+  <!-- end CSS-->
+
+  <!-- More ideas for your <head> here: h5bp.com/d/head-Tips -->
+
+  <!-- All JavaScript at the bottom, except for Modernizr / Respond.
+       Modernizr enables HTML5 elements & feature detects; Respond is a polyfill for min/max-width CSS3 Media Queries
+       For optimal performance, use a custom Modernizr build: www.modernizr.com/download/ -->
+  <script src="js/libs/modernizr-2.0.6.min.js"></script>
+  <link type="text/css" rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic">
+  <link type="text/css" rel="stylesheet" href="http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:extralight,light,regular,bold">
+  <link type="text/css" rel="stylesheet" href="http://fonts.googleapis.com/css?family=OFL+Sorts+Mill+Goudy+TT">
+</head>
+
+<body>
+  <header id="branding" role="banner">
 			<!--<hgroup class="navbar">
 				<h1 id="site-title"> LALALALALA</h1>
 			</hgroup> -->
@@ -65,7 +72,9 @@
 				</div>
 			</nav>
 		</header>
-		<div id="main" class="clearfix">
+
+  <div id="container">
+	<div id="main" class="clearfix">
 			{% block content %} {% endblock %}
 		</div>
 		<div id="sidebar" >
@@ -95,5 +104,43 @@
 			(document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
 		    }());
 		</script>
-	</body
+
+    </div>
+    <footer>
+
+    </footer>
+  </div> <!--! end of #container -->
+
+
+  <!-- JavaScript at the bottom for fast page loading -->
+
+  <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="js/libs/jquery-1.6.2.min.js"><\/script>')</script>
+
+
+  <!-- scripts concatenated and minified via ant build script-->
+  <script defer src="js/plugins.js"></script>
+  <script defer src="js/script.js"></script>
+  <script type="text/javascript" src="/static/custom.js"></script>
+  <script type="text/javascript" src="/static/script.js"></script>
+  <!-- end scripts-->
+
+	
+  <script>
+    window._gaq = [['_setAccount','UA-20080766-1'],['_trackPageview'],['_trackPageLoadTime']];
+    Modernizr.load({
+      load: ('https:' == location.protocol ? '//ssl' : '//www') + '.google-analytics.com/ga.js'
+    });
+  </script>
+
+
+  <!-- Prompt IE 6 users to install Chrome Frame. Remove this if you want to support IE 6.
+       chromium.org/developers/how-tos/chrome-frame-getting-started -->
+  <!--[if lt IE 7 ]>
+    <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
+    <script>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
+  <![endif]-->
+  
+</body>
 </html>
