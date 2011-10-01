@@ -14,27 +14,15 @@ class MainHandler(webapp.RequestHandler):
     @templateSelector('templates/index.html')
     def get(self):
         path = self.request.path
-        nombre_seccion = self.getSeccion(path)
         texto_seccion = "texto seccion"
-
+        networks = Network.all()
         return self.response, {
-                        'nombre_seccion': nombre_seccion,
+                        'networks': networks,
                         'texto_seccion': texto_seccion,
                         'path': path}
 
     def post(self):
         pass
-
-    def getSeccion(self, path):
-        return {
-                '/': 'Inicio',
-                '/cv': 'Curriculum Vitae',
-                '/about': 'Acerca de',
-                '/projects': 'Proyectos',
-                '/blog': 'Blog',
-                '/fotos': 'Fotos',
-                '/contact': 'Contact',
-            }[path]
 
 
 class NotFoundHandler(webapp.RequestHandler):

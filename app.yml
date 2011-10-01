@@ -65,3 +65,13 @@ handlers:
 - url: /portfolio
   script: portfolio.py
 
+- url: /networks
+  script: networks.py
+
+- url: /networks/admin
+  script: networks.py
+  login: admin
+
+- url: /networks/admin/.*
+  script: networks.py
+  login: admin

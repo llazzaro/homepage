@@ -89,5 +89,8 @@ class Photo(db.Model):
 class Comment(db.Model):
     text = db.StringProperty()
 
-class Link(db.Model):
+
+class Network(db.Model):
+    name = db.StringProperty()
     link = db.StringProperty()
+    favicon = db.StringProperty()
