@@ -1,18 +1,21 @@
 {% extends "../_base.htm" %}
 
 {% block content %}
-	<h1>Nueva entry</h1>
-	<form method="post" action="/blog/new" enctype="multipart/form-data" >
-		Title :<input type="text" name="title" size="60" {% if entry %} value="{{entry.title}}" {% endif %}/>
-		Introduction :<textarea type="text" name="intro" cols="%100" rows="5"> {% if entry %} {{entry.intro}} {% endif %} </textarea>
-		Photo: <input type="file" name="photo">
-		Draft :<input type="checkbox" name="draft" {% if entry.draft %} checked="true" {% endif %} />
-		Slug :<input type="text" name="slug" size="60" {% if entry %} value="{{entry.slug}}" {% endif %} />
-		Text:<textarea type="text" name="text" cols="%100" rows="30"> {%if entry %} {{entry.text }} {% endif %} </textarea>
-		<input type="submit" name="Entry" />
-		{% if entry %}
-			<input type="hidden" name="key" value="{{entry.key}}" />
-			
-		{% endif %}
-	</form>
+  <h1>Nueva entry</h1>
+  <form method="post" action="/blog/admin/new" enctype="multipart/form-data" >
+    Title :<input type="text" name="title" size="60" {% if entry %}
+    value="{{entry.title}}" {% endif %}/><br/>
+    Introduction :<textarea type="text" name="intro" cols="90" rows="5"> {% if entry %} {{entry.intro}} {% endif %} </textarea><br/>
+    Photo: <input type="file" name="photo"><br/>
+    Draft :<input type="checkbox" name="draft" {% if entry.draft %}
+    checked="true" {% endif %} /><br/>
+    Slug :<input type="text" name="slug" size="60" {% if entry %}
+    value="{{entry.slug}}" {% endif %} /><br/>
+    Text:<textarea type="text" name="text" cols="90" rows="30"> {%if entry %}
+        {{entry.text }} {% endif %} </textarea><br/>
+    <input type="submit" name="Entry" value="Submit"/><br/>
+    {% if entry %}
+      <input type="hidden" name="key" value="{{entry.key}}" /><br/>
+    {% endif %}
+  </form>
 {% endblock %}

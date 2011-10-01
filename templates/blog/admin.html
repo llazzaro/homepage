@@ -2,10 +2,10 @@
 
 {% block content %}
 <h1> Entries edition </h1>
-<a href="/blog/new"> New entry</a>
+<a href="/blog/admin/new"> New entry</a>
 <ul>
 {% for entry in entries %}
-	<li>{% if entry.borrador %} DRAFT  {% endif %} <a href="/blog/edit?key={{ entry.key }}">{{entry.title}}</a> 
+	<li>{% if entry.borrador %} DRAFT  {% endif %} <a href="/blog/admin/edit?key={{ entry.key }}">{{entry.title}}</a> 
 	</li>
 {% endfor %}
 </ul>

@@ -34,7 +34,7 @@ handlers:
 - url: /blog/.*
   script: blog.py
 
-- url: /blog/admin
+- url: /blog/admin/.*
   script: blog.py
   login: admin
 
