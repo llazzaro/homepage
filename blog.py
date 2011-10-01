@@ -28,6 +28,7 @@ class ViewEntryHandler(webapp.RequestHandler):
     @templateSelector('templates/blog/entry_view.html')
     def get(self, slug):
         entry = db.Query(Entry).filter("slug =", slug).get()
+        entry.text = rst.rst2html(entry.text)
         return self.response, {'entry': entry, 'nombre_seccion': 'Blog'}
 
 

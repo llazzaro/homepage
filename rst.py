@@ -14,7 +14,7 @@ def rst2html(s):
     os.environ['DOCUTILSCONFIG'] = ""
     parts = publish_parts(
                 source=s,
-                writer_name='html4css',
+                writer_name='html4css1',
                 settings_overrides=settings)
 
     return parts['fragment']
