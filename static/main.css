@@ -1,4 +1,4 @@
-	h2, h3, h4, h5, h6, h7, #welcomeTeaser, .max_widget_teaser {
+	h2, h3, h4, h5, h6, h7, .welcomeTeaser, .max_widget_teaser {
 				font-family: "Yanone Kaffeesatz","Helvetica Neue", Helvetica, Arial, sans-serif;
 		font-weight: 300;
 	}
@@ -186,7 +186,7 @@ nav#navigation li li a span { padding: 0; }
 
 /*home styles */
 
-#welcomeTeaser {
+.welcomeTeaser {
 	font-weight: 200;	
 	width: 235px;
 	font-size: 26px;
@@ -197,10 +197,10 @@ nav#navigation li li a span { padding: 0; }
 	text-transform: uppercase;
 	text-align: justify;
 }
-#welcomeTeaser .inner { display: block; padding: 20px }
-#welcomeTeaser .inner strong { font-size: 34px; font-weight: normal; }
+.welcomeTeaser .inner { display: block; padding: 20px }
+.welcomeTeaser .inner strong { font-size: 34px; font-weight: normal; }
 
-#welcomeTeaser, .max_widget_teaser {
+.welcomeTeaser, .max_widget_teaser {
 	background: transparent url('img/bg-scanlines.png') repeat 0 0; 
 	color: #ddd;
 }
