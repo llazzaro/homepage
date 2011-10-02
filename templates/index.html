@@ -1,13 +1,13 @@
 {% extends "_base.htm" %} 
 {% block content %}
-	<div id="welcomeTeaser">
+	<div class="welcomeTeaser">
 			<span class="inner">
 				Hi, my name is <strong>Leonardo Lazzaro</strong>. 
 				I am a Computer Science Student living in the city of <strong>Buenos Aires, Argentina</strong>. 
 				Check out my work in my blog and also my online Portfolio.
 			</span>
 	</div>
-	<div id="welcomeTeaser">
+	<div class="welcomeTeaser">
 			<span class="inner">
                             Other <strong>networks</strong><br/>
                             {% for network in networks %}
@@ -15,11 +15,11 @@
                                   src="http://{{network.favicon}}"
                                   alt="{{network.name}}"
                                   title="{{network.name}}" 
-                                  height="16px" width="16px"></a>
+                                  height="16" width="16"></a>
                             {% endfor %}
 			</span>
         </div>
-        <div id="welcomeTeaser">
+        <div class="welcomeTeaser">
             <script src="http://widgets.twimg.com/j/2/widget.js"></script>
             <script>
                 new TWTR.Widget({

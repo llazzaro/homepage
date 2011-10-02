@@ -7,8 +7,8 @@
 				font-size:  12px !important;
 				font-family: "PT Sans","Helvetica Neue", Helvetica, Arial, sans-serif; 
 	}
-	#welcomeTeaser { font-size: 26px; width:300px; }
-	#welcomeTeaser .inner strong { font-size: 36px; }
+	.welcomeTeaser { font-size: 26px; width:300px; }
+	.welcomeTeaser .inner strong { font-size: 36px; }
 
 
 /* general styles */
