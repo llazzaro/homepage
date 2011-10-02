@@ -18,7 +18,40 @@
                                   height="16px" width="16px"></a>
                             {% endfor %}
 			</span>
-	</div>
+        </div>
+        <div id="welcomeTeaser">
+            <script src="http://widgets.twimg.com/j/2/widget.js"></script>
+            <script>
+                new TWTR.Widget({
+                  version: 2,
+                  type: 'profile',
+                  rpp: 4,
+                  interval: 30000,
+                  width: 235,
+                  height: 300,
+                  theme: {
+                    shell: {
+                    background: '#333333',
+                    color: '#ffffff'
+                    },
+                tweets: {
+                    background: '#333333',
+                    color: '#ffffff',
+                    links: '#c9c9c9'
+                    }
+                },
+                features: {
+                    scrollbar: false,
+                    loop: false,
+                    live: false,
+                    hashtags: true,
+                    timestamp: true,
+                    avatars: false,
+                    behavior: 'all'
+                  }
+                }).render().setUser('llazzaro').start();
+            </script>
+        </div>
 <!--	<div id="welcomeTeaser">
 			<span class="inner">
 				My current location is the city of <strong>Buenos Aires</strong>, in <strong>Argentina</strong>

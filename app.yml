@@ -30,8 +30,8 @@ handlers:
   static_dir: /static/img
 
 - url: /robots.txt
-  static_files: robots.txt
-  upload: robots.txt
+  static_files: static/robots.txt
+  upload: static/robots.txt
 
 - url: /blog
   script: blog.py
