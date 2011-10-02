@@ -11,7 +11,11 @@
 			<span class="inner">
                             Other <strong>networks</strong><br/>
                             {% for network in networks %}
-                              <a href="{{network.link}}"><img src="http://{{network.favicon}}" alt="{{network.name}}" title="{{network.name}}"></a>
+                              <a href="{{network.link}}"><img
+                                  src="http://{{network.favicon}}"
+                                  alt="{{network.name}}"
+                                  title="{{network.name}}" rel="nofollow"
+                                  height="16px" width="16px"></a>
                             {% endfor %}
 			</span>
 	</div>
