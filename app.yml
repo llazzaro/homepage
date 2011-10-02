@@ -6,8 +6,13 @@ api_version: 1
 default_expiration: "5d 12h"
 
 handlers:
-- url: /
-  script: index.py
+- url: /blog/admin
+  script: blog.py
+  login: admin
+
+- url: /blog/admin/.*
+  script: blog.py
+  login: admin
 
 - url: /image
   script: index.py
@@ -34,9 +39,6 @@ handlers:
 - url: /blog/.*
   script: blog.py
 
-- url: /blog/admin/.*
-  script: blog.py
-  login: admin
 
 - url: /projects
   script: projects.py
@@ -75,3 +77,7 @@ handlers:
 - url: /networks/admin/.*
   script: networks.py
   login: admin
+
+- url: /
+  script: index.py
+
