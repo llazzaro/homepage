@@ -78,6 +78,14 @@ handlers:
   script: networks.py
   login: admin
 
+- url: /locations/admin
+  script: locations.py
+  login: admin
+
+- url: /locations/admin/.*
+  script: locations.py
+  login: admin
+
 - url: /
   script: index.py
 

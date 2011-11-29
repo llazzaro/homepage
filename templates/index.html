@@ -2,9 +2,11 @@
 {% block content %}
 	<div class="welcomeTeaser">
 			<span class="inner">
-				Hi, my name is <strong>Leonardo Lazzaro</strong>. 
-				I am a Computer Science Student living in the city of <strong>Buenos Aires, Argentina</strong>. 
-				Check out my work in my blog and also my online Portfolio.
+                            Hi, my name is <strong>{{blog_name}}</strong>. 
+			    I am a Computer Science Student living in the 
+                            city of <strong>{{current_location.name}}</strong>. 
+                            I am from <strong>{{from_location.name}}</strong>
+			    Check out my work in my blog and also my online Portfolio.
 			</span>
 	</div>
 	<div class="welcomeTeaser">

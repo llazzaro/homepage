@@ -14,11 +14,13 @@ class MainHandler(webapp.RequestHandler):
     @templateSelector('templates/index.html')
     def get(self):
         path = self.request.path
-        texto_seccion = "texto seccion"
         networks = Network.all()
+        current_location = db.Query(Location).order('-arrival').get()
+        from_location = db.Query(Location).order('arrival').get()
         return self.response, {
                         'networks': networks,
-                        'texto_seccion': texto_seccion,
+                        'current_location': current_location,
+                        'from_location': from_location,
                         'path': path}
 
     def post(self):

@@ -94,3 +94,7 @@ class Network(db.Model):
     name = db.StringProperty()
     link = db.StringProperty()
     favicon = db.StringProperty()
+
+class Location(db.Model):
+    name = db.StringProperty()
+    arrival = db.DateTimeProperty()
