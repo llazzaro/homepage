@@ -26,6 +26,7 @@ class templateSelector(object):
             response, template_data = f(*args)
             template_data['host'] = args[0].request.host_url
             template_data['disqus_shortname'] = self.options['disqus_shortname']
+            template_data['blog_name'] = self.options['blog_name']
             outstr = template.render(temp, template_data)
             response.out.write(outstr)
         
