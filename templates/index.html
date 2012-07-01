@@ -1,62 +1,118 @@
-{% extends "_base.htm" %} 
-{% block content %}
-	<div class="welcomeTeaser">
-			<span class="inner">
-                            Hi! I am <strong>{{blog_name}}</strong>. 
-			    I study Computer Science. Right now living at the 
-                            city of <strong>{{current_location.name}}</strong>. 
-                            I'm from <strong>{{from_location.name}}</strong>.
-			    Check out my work in my blog and also my online Portfolio.
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Leonardo Lazzaro | Homepage</title>
+    
+    <meta name="description" content="Leonardo Luis Lazzaro Argentinian
+    software developer. python, php, smalltalk, c/c++, js ">
+
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:regular,semibold,italic,italicsemibold|PT+Sans:400,700,400italic,700italic|PT+Serif:400,700,400italic,700italic" rel="stylesheet" />
+
+    <link href="static/css/style.css" rel="stylesheet" />
+    <meta name="google-site-verification" content="Qy9o9g29JXYPuLpkUw6RqLhyqhWWmCi3iayqXd5GY3s" />
+</head>
+<body>
+
+<div id="impress" class="impress-not-supported">
+
+    <div class="fallback-message">
+        <p>Your browser <b>doesn't support the features required</b> by impress.js, so you are presented with a simplified version of this presentation.</p>
+        <p>For the best experience please use the latest <b>Chrome</b> or <b>Safari</b> browser. Firefox 10 and Internet Explorer 10 <i>should</i> also handle it.</p>
+    </div>
+
+    <div id="title" class="step" data-x="0" data-y="0" data-scale="4">
+        <span class="try">welcome to my</span>
+        <h1>homepage<sup></sup></h1>
+        <span class="footnote"><sup></sup> for navigation use
+            <img src="static/img/arrow_left.jpg" />
+            <img src="static/img/arrow_right.jpg" />
+        </span>
+    </div>
+
+    <div id="its" class="step" data-x="850" data-y="3000" data-rotate="90" data-scale="5">
+        <p>Hi, my name is <strong>Leonardo Lazzaro</strong> <br/>
+        and I am a software developer <br/>
+        from <strong>Argentina</strong> living at the city of <br/>
+        <strong>Santo Domingo, Dominican Republic.</strong> <br/>
+    </div>
+
+    <div id="big" class="step" data-x="3500" data-y="2100" data-rotate="180" data-scale="6">
+        <p>please check my <b><a href="/blog">blog</a></b> <span class="thoughts"></span></p>
+    </div>
+
+    <div id="tiny" class="step" data-x="2825" data-y="2325" data-z="-600" data-rotate="300" data-scale="1">
+        <p>also check my other <strong>profiles</strong></p>
+          <span class="inner">
+            <a href="http://www.facebook.com/lazzaroleonardo" rel="nofollow"><img
+                                  src="http://www.facebook.com/favicon.ico"
+                                  alt="Facebook profile"
+                                  title="Facebook profile" 
+                                  height="32" width="32"></a>
+                            
+            <a href="http://ar.linkedin.com/in/llazzaro" rel="nofollow"><img
+                                  src="http://ar.linkedin.com/favicon.ico"
+                                  alt="Linkedin profile"
+                                  title="Linkedin profile" 
+                                  height="32" width="32"></a>
+                            
+            <a href="http://www.flickr.com/photos/llazzaro/" rel="nofollow"><img
+                                  src="http://www.flickr.com/favicon.ico"
+                                  alt="Flickr profile"
+                                  title="Flickr profile" 
+                                  height="32" width="32"></a>
+                            
+            <a href="https://github.com/llazzaro" rel="nofollow"><img
+                                  src="http://github.com/favicon.ico"
+                                  alt="Github profile"
+                                  title="Github profile" 
+                                  height="32" width="32"></a>
+                            
+            <a href="http://stackoverflow.com/users/127153/llazzaro" rel="nofollow"><img
+                                  src="http://stackoverflow.com/favicon.ico"
+                                  alt="Stackoverflow profile"
+                                  title="Stackoverflow profile" 
+                                  height="32" width="32"></a>
+                            
+            <a href="http://twitter.com/#!/llazzaro" rel="nofollow"><img
+                                  src="http://twitter.com/favicon.ico"
+                                  alt="Twitter profile"
+                                  title="Twitter profile" 
+                                  height="32" width="32"></a>
+                            
+            <a href="http://serverfault.com/users/15693/llazzaro" rel="nofollow"><img
+                                  src="http://serverfault.com/favicon.ico"
+                                  alt="Serverfault profile"
+                                  title="Serverfault profile" 
+                                  height="32" width="32"></a>
+                            
+            <a href="https://bitbucket.org/llazzaro" rel="nofollow"><img
+                                  src="http://bitbucket.org/favicon.ico"
+                                  alt="Bitbucket profile"
+                                  title="Bitbucket profile" 
+                                  height="32" width="32"></a>
+                            
 			</span>
-	</div>
-	<div class="welcomeTeaser">
-			<span class="inner">
-                            Other <strong>networks</strong><br/>
-                            {% for network in networks %}
-                              <a href="{{network.link}}" rel="nofollow"><img
-                                  src="http://{{network.favicon}}"
-                                  alt="{{network.name}}"
-                                  title="{{network.name}}" 
-                                  height="16" width="16"></a>
-                            {% endfor %}
-			</span>
-        </div>
-        <div class="welcomeTeaser">
-            <script src="http://widgets.twimg.com/j/2/widget.js"></script>
-            <script>
-                new TWTR.Widget({
-                  version: 2,
-                  type: 'profile',
-                  rpp: 4,
-                  interval: 30000,
-                  width: 235,
-                  height: 300,
-                  theme: {
-                    shell: {
-                    background: '#333333',
-                    color: '#ffffff'
-                    },
-                tweets: {
-                    background: '#333333',
-                    color: '#ffffff',
-                    links: '#c9c9c9'
-                    }
-                },
-                features: {
-                    scrollbar: false,
-                    loop: false,
-                    live: false,
-                    hashtags: true,
-                    timestamp: true,
-                    avatars: false,
-                    behavior: 'all'
-                  }
-                }).render().setUser('llazzaro').start();
-            </script>
-        </div>
-<!--	<div id="welcomeTeaser">
-			<span class="inner">
-				My current location is the city of <strong>Buenos Aires</strong>, in <strong>Argentina</strong>
-			</span>
-                    </div>-->
-{% endblock %}
+
+    </div>
+
+    <div id="one-more-thing" class="step" data-x="6000" data-y="4000" data-scale="2">
+        <p>I love computers, music, photography and <a
+            href="http://en.wikipedia.org/wiki/Demoscene">demos</a>. <br/>
+        <strong>Thanks!</strong>
+        </p>
+    </div>
+
+
+    <div id="overview" class="step" data-x="3000" data-y="1500" data-scale="10">
+    </div>
+
+</div>
+
+<div class="hint">
+    <p>Use a spacebar or arrow keys to navigate</p>
+</div>
+<script src="static/js/jmpress.js"></script>
+
+</body>
+</html>
