@@ -130,7 +130,7 @@ nav#navigation li li a span { padding: 0; }
 }
 
 #primary {
-	 background: none repeat scroll 0 0 #FFFFFF;
+	 background: none repeat scroll 0 0;
 	     padding: 30px;
 	         position: relative;
 	float: right;
