@@ -21,3 +21,9 @@ indexes:
   - name: draft
   - name: published_at
     direction: desc
+
+- kind: FlickrEntry
+  properties:
+  - name: draft
+  - name: published_at
+    direction: desc

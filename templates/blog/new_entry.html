@@ -1,8 +1,8 @@
 {% extends "../_base.htm" %}
 
 {% block content %}
-  <h1>Nueva entry</h1>
-  <form method="post" action="/blog/admin/new" enctype="multipart/form-data" >
+  <h1>New entry</h1>
+  <form method="post" action="/blog/admin/new_entry" enctype="multipart/form-data" >
     Title :<input type="text" name="title" size="60" {% if entry %}
     value="{{entry.title}}" {% endif %}/><br/>
     Introduction :<textarea type="text" name="intro" cols="90" rows="5"> {% if entry %} {{entry.intro}} {% endif %} </textarea><br/>

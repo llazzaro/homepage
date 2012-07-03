@@ -1,0 +1,14 @@
+{% extends "../_base.htm" %}
+
+{% block content %}
+  <h1>New Flickr post</h1>
+  <form method="post" action="/blog/admin/new_flickr" enctype="multipart/form-data" >
+    Title :<input type="text" name="title" size="60" {% if entry %} value="{{entry.title}}" {% endif %}/><br/>
+    Draft :<input type="checkbox" name="draft" {% if entry.draft %} checked="true" {% endif %} /><br/>
+    Flickr HTML:<textarea type="text" name="flickr_html" cols="90" rows="30"> {%if entry %} {{entry.flickr_html }} {% endif %} </textarea><br/>
+    <input type="submit" name="Entry" value="Submit"/><br/>
+    {% if entry %}
+      <input type="hidden" name="key" value="{{entry.key}}" /><br/>
+    {% endif %}
+  </form>
+{% endblock %}

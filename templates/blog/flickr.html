@@ -1,0 +1,22 @@
+      <article class="post type-post status-publih format-standard hentry category-blog tag-blog tag-dreaming clearfix">
+      <div class="date-badge">
+        {{entry.published_at.day}}
+        <span>{{entry.published_at|date:"M"}} </span>
+      </div>
+      <div class="entry">
+        <h2 class="entry-title" >
+          <a href="/blog/entry/{{entry.slug}}" >{{entry.title }}</a> 
+        </h2>
+        <div class="entry-image">
+            {{entry.flickr_html}}
+        </div>
+        <div class="clearfix entry-meta" >
+          <ul>
+            <li>
+              Publicado : {{entry.published_at|date:"d M Y" }}
+            </li>
+          </ul>
+        </div> 
+      </div>
+    </div>
+    </article>

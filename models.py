@@ -13,6 +13,18 @@ class Entry(db.Model):
     published_at = db.DateTimeProperty(auto_now=True)
     draft = db.BooleanProperty()
 
+    def view_template(self):
+        return 'post.html'
+
+class FlickrEntry(db.Model):
+    title = db.StringProperty(required=True)
+    created_at = db.DateTimeProperty(auto_now=True)
+    published_at = db.DateTimeProperty(auto_now=True)
+    flickr_html = db.TextProperty(required=True)
+    draft = db.BooleanProperty()
+    
+    def view_template(self):
+        return 'flickr.html'
 
 class Tag(db.Model):
     name = db.StringProperty()

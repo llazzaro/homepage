@@ -17,6 +17,11 @@ class BlogHandler(webapp.RequestHandler):
         entries = db.Query(Entry).filter(
                                     'draft =', False).order(
                                                '-published_at').fetch(limit=10)
+
+        entries = db.Query(FlickrEntry).filter(
+                                    'draft =', False).order(
+                                               '-published_at').fetch(limit=10)
+        print entries
         admin = users.is_current_user_admin()
         return self.response, {'admin': admin,
                                 'entries': entries,
@@ -25,6 +30,7 @@ class BlogHandler(webapp.RequestHandler):
 
 #este devuelve la vista de una entry
 class ViewEntryHandler(webapp.RequestHandler):
+
     @templateSelector('templates/blog/entry_view.html')
     def get(self, slug):
         entry = db.Query(Entry).filter("slug =", slug).get()
@@ -59,6 +65,32 @@ class EntryHandler(webapp.RequestHandler):
             oEntry.intro = self.request.get('intro')
             oEntry.slug = self.request.get('slug')
             oEntry.text = self.request.get('text')
+            oEntry.draft = bool(self.request.get('draft'))
+
+        oEntry.put()
+
+class FlickrEntryHandler(webapp.RequestHandler):
+    @templateSelector('templates/blog/new_flickr.html')
+    def get(self):
+        entry = None
+        if self.request.get('key'):
+            entry = db.get(self.request.get('key'))
+
+        return self.response, {'entry': entry}
+
+    def post(self):
+        #is this a new entry or edit entry?
+        if self.request.get('key') is '':
+            oEntry = FlickrEntry(
+                author = users.get_current_user(),
+                title = self.request.get('title'),
+                flickr_html = self.request.get('flickr_html'),
+                draft = bool(self.request.get('draft'))
+            )
+        else:
+            oEntry = db.get(self.request.get('key'))
+            oEntry.title = self.request.get('title')
+            oEntry.flickr_html = self.request.get('flickr_html')
             oEntry.draft = bool(self.request.get('draft'))
 
         oEntry.put()
@@ -132,7 +164,8 @@ def main():
                 (r'/blog/atom', AtomHandler),
                 (r'/blog/rss.xml', RSSHandler),
                 (r'/blog/entry/([^/]+)', ViewEntryHandler),
-                (r'/blog/admin/new', EntryHandler),
+                (r'/blog/admin/new_entry', EntryHandler),
+                (r'/blog/admin/new_flickr', FlickrEntryHandler),
                 (r'/blog/admin/edit/?', EntryHandler),
                 (r'/blog/admin/delete/?', DeleteEntryHandler),
                 (r'/blog/admin', AdminHandler),
