@@ -21,7 +21,6 @@ class BlogHandler(webapp.RequestHandler):
         entries = db.Query(FlickrEntry).filter(
                                     'draft =', False).order(
                                                '-published_at').fetch(limit=10)
-        print entries
         admin = users.is_current_user_admin()
         return self.response, {'admin': admin,
                                 'entries': entries,
