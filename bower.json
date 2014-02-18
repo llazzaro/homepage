@@ -1,0 +1,17 @@
+{
+  "name": "HomepageJS",
+  "version": "0.0.1",
+  "homepage": "https://github.com/llazzaro/homepage",
+  "main": "/public/js/app.js",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components"
+  ],
+  "dependencies": {
+    "ember": "~1.3.0",
+    "ember-data": "~1.0.0",
+    "bootstrap": "~3.0.0"
+  }
+}
