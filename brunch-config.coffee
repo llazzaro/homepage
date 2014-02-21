@@ -8,12 +8,16 @@ exports.config =
             pluginHelpers: 'js/app.js'
 
         stylesheets:
-            joinTo: 'css/app.css'
+            joinTo: 'css/app.css': /^(vendor|bower_components|app)/
+#            order:
+#                before: [
+#                    "bower_components/bootstrap/dist/css/bootstrap.css",
+#                ]
 
-        templates: 
+        templates:
           precompile: true
           root: 'templates'
-          joinTo: 
+          joinTo:
             'js/app.js': /^app/
 
     plugins:

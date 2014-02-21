@@ -1,2 +1,8 @@
 module.exports = App.Router.map ->
-  # put your routes here
+  @route "posts",
+    path: "/posts"
+
+  @route "about",
+    path: "/about"
+
+  return
