@@ -1,0 +1,17 @@
+<div class="container-fluid">
+      <div class="row-fluid">
+        <div class="span3">
+              <h1>Recent Entries</h1>
+          <div class='container recent_archives'>
+            {{#each model}}
+            <div class="row">
+                {{#link-to 'archive' this}}{{caption}} <small class='muted'>{{format-date date}} {{date}}</small>{{/link-to}}
+            </div>
+            {{/each}}
+          </div>
+        </div>
+        <div class="span9">
+          {{outlet}}
+        </div>
+      </div>
+    </div>
