@@ -1,3 +1,6 @@
 <h1 class="text_entry">{{ title }}</h1>
-<div class="meta"><h2 class="text_entry">{{ format-date date }}</h2></div>
-{{ safestring body }}
+<div class="meta"><h2 class="text_entry">{{ date-with-month date }}</h2></div>
+<article>
+    {{ safestring body }}
+</article>
+<div class="meta"></div>
