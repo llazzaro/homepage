@@ -18,16 +18,16 @@ App.Post.reopenClass
     return @array
   find: (params) ->
     _this = this
-    @photo = Ember.ObjectProxy.extend({}).create()
+    @post = Ember.ObjectProxy.extend({}).create()
     $.ajax(
       type: 'GET'
       url: _this.tumblr_url + _this.tumblr_blog + '/posts/text' + _this.post_type  + '?id=' + params.id + '&api_key=' + _this.api_key
       contentType: 'application/json'
       dataType: 'jsonp'
     ).then((data) ->
-      _this.photo.set('content', data.response.posts[0])
+      _this.post.set('content', data.response.posts[0])
     )
-    return @photo
+    return @post
 
 App.TextPost = App.Post.extend()
 App.TextPost.reopenClass post_type: "text"
