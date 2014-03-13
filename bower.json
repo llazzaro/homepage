@@ -10,12 +10,14 @@
     "bower_components"
   ],
   "dependencies": {
-    "ember": "~1.3.0",
-    "ember-data": "~1.0.0",
+    "ember": "~1.5.0-beta.4",
+    "ember-data": "1.0.0-beta.7+canary",
     "bootstrap": "~3.1.1",
     "font-awesome": "~4.0.3",
     "moment": "~2.5.1",
-    "showdown": "~0.3.1"
+    "showdown": "~0.3.1",
+    "masonry": "~3.1.4",
+    "underscore": "~1.6.0"
   },
   "overrides": {
     "font-awesome": {
@@ -24,9 +26,9 @@
       ]
     },
     "showdown": {
-        "main": [
-            "src/showdown.js"
-        ]
+      "main": [
+        "src/showdown.js"
+      ]
     }
   }
 }
