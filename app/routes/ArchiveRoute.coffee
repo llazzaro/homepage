@@ -1,3 +1,7 @@
 module.exports = App.ArchiveRoute = Ember.Route.extend
   model: (params) ->
-    App.TextPost.find({id: params.archive_id})
+    this.store.find('post',params.archive_id)
+
+  actions: ->
+    error: (reason) ->
+      alert(reason)

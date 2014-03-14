@@ -1,36 +1,33 @@
-App.Post = DS.Model.extend()
+App.Post = DS.Model.extend(
+  date: DS.attr('string'),
+  title: DS.attr('string'),
+  body: DS.attr('string')
+)
 
-App.Post.reopenClass
+App.PostAdapter = DS.Adapter.extend(
   api_key: 'hSdfszPwGFt7wWTMnPmgsO8C4SHvWxnIHmX5VC0ujL9ZlEw5wb'
   tumblr_blog: 'llazzaro.tumblr.com'
   tumblr_url: 'http://api.tumblr.com/v2/blog/'
-  findAll: ->
+  post_type: 'text'
+
+  findAll: (store, type)->
     _this = this
-    @array = Ember.ArrayProxy.extend({}).create()
-    $.ajax(
+    return $.ajax(
       type: 'GET'
       url: _this.tumblr_url + _this.tumblr_blog + '/posts/' + _this.post_type + '?api_key=' + _this.api_key
       contentType: 'application/json'
       dataType: 'jsonp'
     ).then((data) ->
-      _this.array.set('content', data.response.posts)
+      data.response.posts
     )
-    return @array
-  find: (params) ->
+  find: (store, type, id) ->
     _this = this
-    @post = Ember.ObjectProxy.extend({}).create()
-    $.ajax(
+    return $.ajax(
       type: 'GET'
-      url: _this.tumblr_url + _this.tumblr_blog + '/posts/text' + _this.post_type  + '?id=' + params.id + '&api_key=' + _this.api_key
+      url: _this.tumblr_url + _this.tumblr_blog + '/posts/text' + _this.post_type  + '?id=' + id + '&api_key=' + _this.api_key
       contentType: 'application/json'
       dataType: 'jsonp'
     ).then((data) ->
-      _this.post.set('content', data.response.posts[0])
+      data.response.posts[0]
     )
-    return @post
-
-App.TextPost = App.Post.extend()
-App.TextPost.reopenClass post_type: "text"
-
-App.QuotePost = App.Post.extend()
-App.QuotePost.reopenClass post_type: "quote"
+)

@@ -1,3 +1,7 @@
 module.exports = App.IndexRoute = Ember.Route.extend
   model: ->
-    App.TextPost.findAll()
+    this.store.find('post')
+
+  actions: ->
+    error: (reason) ->
+      alert(reason)
