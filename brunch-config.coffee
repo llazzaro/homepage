@@ -1,47 +1,46 @@
 exports.config =
     files:
-        javascripts:
-            joinTo:
-                'js/app.js': /^(app)/
-                'js/vendor.js' :  /^(vendor|bower_components)/
+      javascripts:
+        joinTo:
+          'js/app.js': /^(app)/
+          'js/vendor.js' :  /^(vendor|bower_components)/
+        pluginHelpers: 'js/app.js'
 
-            pluginHelpers: 'js/app.js'
-
-        stylesheets:
-            joinTo: 'css/app.css': /^(vendor|bower_components|app)/
+      stylesheets:
+        joinTo: 'css/app.css': /^(vendor|bower_components|app)/
 #            order:
 #                before: [
 #                    "bower_components/bootstrap/dist/css/bootstrap.css",
 #                ]
 
-        templates:
-          precompile: true
-          root: 'templates'
-          joinTo:
-            'js/app.js': /^app/
+      templates:
+        precompile: true
+        root: 'templates'
+        joinTo:
+          'js/app.js': /^app/
 
     plugins:
-        autoReload:
-            enabled:
-                js: on
-                css: on
-                assets: off
+        #        autoReload:
+        #    enabled:
+        #        js: on
+        #        css: on
+        #        assets: off
 
-        imageoptimizer:
-            path: 'images'
-            smushit: no
+      imageoptimizer:
+        path: 'images'
+        smushit: no
 
         coffeelint:
-            pattern: /^app\/.*\.coffee$/
+          pattern: /^app\/.*\.coffee$/
 
-            options:
-                indentation:
-                    value: 4
-                    level: "error"
+          options:
+            indentation:
+              value: 4
+              level: "error"
 
-                max_line_length:
-                    value: 80
-                    level: "error"
+            max_line_length:
+              value: 80
+              level: "error"
 
     conventions:
-        assets: /(assets|font)/
+      assets: /(assets|font)/

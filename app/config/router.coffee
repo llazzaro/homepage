@@ -8,4 +8,7 @@ module.exports = App.Router.map ->
   @route "about",
     path: "/about"
 
+  @route "photos",
+    path: "/photos"
+
   return
