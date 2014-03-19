@@ -1,5 +1,5 @@
 App.Post = DS.Model.extend(
-  date: DS.attr('string'),
+  date: DS.attr('date'),
   title: DS.attr('string'),
   body: DS.attr('string')
 )
