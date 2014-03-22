@@ -1,5 +1,8 @@
-<div class="center-content">
+<div class="full-content">
     {{#each item in controller}}
-        {{text-entry title=item.title body=item.body date=item.date}}
+        <div class="row {{unbound even index}}">
+            <p class="meta {{unbound even index}}"><span>Posted on </span>{{ date-with-month item.date }}</p>
+            <h1 class="big {{unbound even index}}" class="text_entry">{{#link-to 'archive' item}}{{item.title}} {{/link-to}}</h1>
+        </div>
     {{/each}}
 </div>
