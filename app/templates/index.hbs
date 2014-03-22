@@ -1,8 +1,8 @@
 <div class="full-content">
-    {{#each item in controller}}
-        <div class="row {{unbound even index}}">
-            <p class="meta {{unbound even index}}"><span>Posted on </span>{{ date-with-month item.date }}</p>
-            <h1 class="big {{unbound even index}}" class="text_entry">{{#link-to 'archive' item}}{{item.title}} {{/link-to}}</h1>
+    {{#each contentWithIndexes}}
+        <div class="row {{unbound if_even this.index}}">
+            <p class="meta {{unbound if_even this.index}}"><span>Posted on </span>{{ date-with-month this.item.date }}</p>
+            <h1 class="big {{unbound if_even this.index}}" class="text_entry">{{#link-to 'archive' this.item}}{{this.item.title}} {{/link-to}}</h1>
         </div>
     {{/each}}
 </div>
