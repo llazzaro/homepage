@@ -15,3 +15,14 @@ folderOrder.forEach (folder) ->
   window.require.list().filter((module) ->
     new RegExp("^#{folder}/").test(module)
   ).forEach((module) -> require(module))
+
+App.Router.reopen
+
+  didTransition: (infos) ->
+    @_super(infos)
+    return unless window.ga
+    Em.run.next ->
+      ga('send', 'pageview', {
+        'page': window.location.hash,
+        'title': window.location.hash
+      })
