@@ -1,7 +1,8 @@
 App.Post = DS.Model.extend(
   date: DS.attr('date'),
   title: DS.attr('string'),
-  body: DS.attr('string')
+  body: DS.attr('string'),
+  tags: DS.attr()
 )
 
 App.PostAdapter = DS.Adapter.extend(

@@ -1,8 +1,15 @@
 <div class="full-content">
     {{#each contentWithIndexes}}
         <div class="row {{unbound if_even this.index}}">
+          <div class="post_preview">
             <p class="meta {{unbound if_even this.index}}"><span>Posted on </span>{{ date-with-month this.item.date }}</p>
             <h1 class="big {{unbound if_even this.index}}" class="text_entry">{{#link-to 'archive' this.item}}{{this.item.title}} {{/link-to}}</h1>
+            <span class="glyphicon glyphicon-tag tags {{unbound if_even this.index}}">
+                {{#each this.item.tags }}
+                    {{ this }}
+                {{/each}}
+            </span>
+          </div>
         </div>
     {{/each}}
 </div>
