@@ -7,7 +7,9 @@ exports.config =
         pluginHelpers: 'js/app.js'
 
       stylesheets:
-        joinTo: 'css/app.css': /^(vendor|bower_components|app)/
+        joinTo:
+          'css/vendor.css': /^(vendor|bower_components)/
+          'css/app.css': /^(app)/
 #            order:
 #                before: [
 #                    "bower_components/bootstrap/dist/css/bootstrap.css",
