@@ -1,8 +1,16 @@
+App.ArrayTransform = DS.Transform.extend(
+  deserialize: (serialized) ->
+    (if Em.isNone(serialized) then {} else serialized)
+
+  serialize: (deserialized) ->
+    (if Em.isNone(deserialized) then {} else deserialized)
+)
+
 App.Post = DS.Model.extend(
   date: DS.attr('string'),
   title: DS.attr('string'),
   body: DS.attr('string'),
-  tags: DS.attr()
+  tags: DS.attr('array', { defaultValue: [] })
 )
 
 App.PostAdapter = DS.Adapter.extend(
