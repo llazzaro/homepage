@@ -3,3 +3,7 @@ Ember.Handlebars.helper "if_even", (number) ->
     "even"
   else
     "odd"
+
+Ember.Handlebars.helper "trim", (body) ->
+  trimmedBody = body.substring(0, 500)
+  new Handlebars.SafeString(trimmedBody)

@@ -1,14 +1,16 @@
 <div class="full-content">
     {{#each contentWithIndexes}}
-        <div class="row {{unbound if_even this.index}}">
+        <div class="row odd">
           <div class="post_preview">
-            <p class="meta {{unbound if_even this.index}}"><span>Posted on </span>{{ date-with-month this.item.date }}</p>
-            <h1 class="big {{unbound if_even this.index}}" class="text_entry">{{#link-to 'archive' this.item}}{{this.item.title}} {{/link-to}}</h1>
-            <span class="glyphicon glyphicon-tag tags {{unbound if_even this.index}}">
+            <h1 class="big odd" class="text_entry">{{#link-to 'archive' this.item}}{{this.item.title}} {{/link-to}}</h1>
+            <p class="meta odd"><span>Posted on </span>{{ date-with-month this.item.date }}</p>
+            <span class="glyphicon glyphicon-tag tags odd">
                 {{#each this.item.tags }}
                     {{ this }}
                 {{/each}}
             </span>
+            <div>{{ trim this.item.body}}</div>
+            {{#link-to 'archive' this.item classNames="sheet-read-more"}} Read more... {{/link-to}}
           </div>
         </div>
     {{/each}}
