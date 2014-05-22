@@ -1,4 +1,3 @@
-App.DisqusCommentsComponent = Ember.Component.extend(
+App.IndexView = Ember.View.extend
   didInsertElement: ->
     hljs.initHighlightingOnLoad()
-)
