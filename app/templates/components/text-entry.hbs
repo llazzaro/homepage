@@ -1,5 +1,10 @@
-<h1 class="text_entry">{{ title }}</h1>
-<div class="meta"><h2 class="text_entry">{{ date-with-month date }}</h2></div>
+<h1 class="big">{{ title }}</h1>
+<div class="meta"><h2 class="text_entry"><span>Posted on </span>{{ date-with-month date }}</h2></div>
+<span class="glyphicon glyphicon-tag tags ">
+    {{#each tags }}
+        {{ this }}
+    {{/each}}
+</span>
 <article>
     {{ safestring body }}
 </article>
